@@ -1,5 +1,5 @@
 ---
-title: "git sunucu servisleri, alternatifler"
+title: "git sunucu servisleri"
 excerpt: "Git sunucusu olarak kullanabileceginiz servisler ve ozelliklerinin karsilastirilmasi."
 ---
 

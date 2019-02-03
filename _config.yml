@@ -1,6 +1,7 @@
 title: "shitstorm"
 author: "Burak Karakan"
 description: "i have no idea wtf i'm talking about"
+baseurl: "/blog"
 
 # Jekyll settings
 permalink: /:title/          # see https://jekyllrb.com/docs/permalinks/

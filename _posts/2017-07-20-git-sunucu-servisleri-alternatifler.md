@@ -3,7 +3,8 @@ title: "git sunucu servisleri, alternatifler"
 excerpt: "Git sunucusu olarak kullanabileceginiz servisler ve ozelliklerinin karsilastirilmasi."
 ---
 
-![[Kaynak](http://www.amarinfotech.com/gitlab-vs-github-vs-bitbucket.html)](/assets/images/git-servisler/github-gitlab-bitbucket.jpeg)
+![[Kaynak](http://www.amarinfotech.com/gitlab-vs-github-vs-bitbucket.html)](/blog/assets/images/git-servisler/github-gitlab-bitbucket.jpeg)
+
 *[Kaynak](http://www.amarinfotech.com/gitlab-vs-github-vs-bitbucket.html)*
 
 Git’in ne olduğunu tartıştığımız [git nedir?]({% post_url 2017-07-13-git-nedir %}) adlı yazımızda bahsetmediğimiz, fakat bazı okuyucuların aklında canlanacak olan “lao biz git push yapıyoruz tamam da nereye yapıyoruz bunu?” sorusunu tartışmak istiyoruz bu yazıda.
@@ -14,7 +15,7 @@ Bu noktada çeşitli Git sunucu servisleri doğmuş işte. Aslında Amerika’y�
 
 ## GitHub
 
-![GitHub Logo](/assets/images/git-servisler/github-logo.png)
+![GitHub Logo]({{ '/assets/images/git-servisler/github-logo.png' | relative_url }})
 
 Şüphesiz ki Git sunucu servislerinin en meşhurudur GitHub. [Sitelerinde yazdığına göre](https://github.com/about) **23 milyondan fazla kullanıcı ve 63 milyondan fazla proje varmış GitHub üzerinde.** En popüler olmasının altında sanıyorum bu alandaki ilklerden olması yatıyor, fakat bugün en popüler açık kaynak projelerin çoğu GitHub üzerinde tutuluyor, en önemli geliştirmeler, tartışmalar ve iş birlikleri GitHub üzerinde yaşanıyor, bu da platformu herkes için daha cazip bir hale getiriyor.
 
@@ -24,7 +25,7 @@ GitHub’ın en temel özelliklerinden biri açık kaynak geliştirme işini bir
 
 GitHub tamamen ücretsiz kullanılabilecek bir servis aslında. Public repo’lar için hiç bir ücret talep etmiyor GitHub, dolayısıyla sınırsız sayıda repo’nuz olabiliyor. Ücretlendirme ise private repo’lar oluşturmak istediğinizde karşınıza çıkıyor. Fiyatlar şu şekilde görünüyor:
 
-![GitHub Pricing](/assets/images/git-servisler/github-pricing.png)
+![GitHub Pricing](/blog/assets/images/git-servisler/github-pricing.png)
 *[Kaynak](https://github.com/pricing)*
 
 Bununla beraber GitHub bir [Student Pack](https://education.github.com/pack) de sunuyor. Bu paket sayesinde eğer öğrenciyseniz çeşitli servislerin GitHub sayesinde size sunduğu özel servislerden faydalanabilirsiniz. Yine aynı paket ile yukarıdaki “Developer” pakedini de ücretsiz olarak kullanabiliyorsunuz.
@@ -39,7 +40,7 @@ Bununla beraber GitHub bir [Student Pack](https://education.github.com/pack) de 
 
 ## Bitbucket
 
-![Bitbucket Logo](/assets/images/git-servisler/bitbucket-logo.png)
+![Bitbucket Logo](/blog/assets/images/git-servisler/bitbucket-logo.png)
 
 Piyasanın abisi [Atlassian](https://www.atlassian.com/)’ı bilen bilir. Bu reisleri **JIRA** ile bilirsiniz belki, bunun dışında **HipChat**, **Confluence** gibi ürünleri var. Son olarak da geçtiğimiz sene **Trello’yu satın aldı** babalar, böyle böyle içten fethediyorlar piyasayı. İşte bu **Bitbucket** da Atlassian’ın sunduğu, **Atlassian’ın diğer tüm ürünleri ile entegre çalışabilen bir Git sunucu servisi.** 2008 yılında kurulan Bitbucket, 2010'da Atlassian tarafından satın alınmış; ilk odağı Mercurial projeleri olan bu servis zaman içerisinde yüzünü Git projelerine dönmüş.
 
@@ -49,7 +50,7 @@ GitHub’ın aksine Bitbucket ücretsiz planında **sınırsız public ve privat
 
 Fiyatlandırması GitHub’a göre daha uygun olan Bitbucket planları ise şu şeklide:
 
-![Bitbucket Pricing](/assets/images/git-servisler/bitbucket-pricing.png)
+![Bitbucket Pricing](/blog/assets/images/git-servisler/bitbucket-pricing.png)
 *[Kaynak](https://bitbucket.org/product/pricing?tab=host-in-the-cloud)*
 
 Bitbucket aynı zamanda güzel paralara **kendi sunucunuzda** kullanabileceğiniz versiyonunu da satıyor, ilgilisi kaynak linkinden detayları inceleyebilir.
@@ -58,7 +59,7 @@ Bitbucket da bu şekil, bilhassa Atlassian ürünü kullanan geliştirici takım
 
 ## GitLab
 
-![GitLab Logo](/assets/images/git-servisler/gitlab-logo)
+![GitLab Logo](/blog/assets/images/git-servisler/gitlab-logo.png)
 
 Geldik gönlümün efendisine: **GitLab**. GitLab 2011 yılında ilk adımları atılmış, başından beri **açık kaynak olarak geliştirilen** bir Git sunucu servisi. Reisler başlarda açık kaynak olarak geliştirmişler, sonra kullanıcı sayıları artmış vesaire. Bu süreçte bazı büyük organizasyonlar bu abilerden yeni özellikler talep etmişler, e bu abiler de “*taş mı yiyek*” demiş, GitLab Enterprise’ı çıkarmışlar. 2011'den bugüne kadar **proje halen açık kaynak olarak geliştiriliyor** ve bu açık kaynak olan versiyona **GitLab Community Edition** adı veriliyor. Velhasılıkelam, GitLab size tamamen ücretsiz bir alternatif sunuyor, temel özelliklerin hiç biri için para ödemeniz gerekmiyor.
 
@@ -66,7 +67,7 @@ Geldik gönlümün efendisine: **GitLab**. GitLab 2011 yılında ilk adımları 
 
 Aslında Community Edition’u indirip **kendi sunucunuzda** saklayabiliyorsunuz, fakat bu benim çok da umrumda olmayan bir özellik açıkçası. Bunun yerine, direk [gitlab.com](https://gitlab.com) üzerinden kayıt olduğunuzda **Enterprise Edition’u tamamen ücretsiz olarak kullanabiliyorsunuz**. Bu Enterprise Edition içerisinde de Free, Bronze, Silver ve Gold adında 4 farklı plan var, fakat şu an için Free ve Bronze planlar da Silver planın özelliklerini kullanabiliyormuş, gelecek dönemde kaldırılacak yazıyor sitelerinde. Fiyatlar ise şu şekilde:
 
-![GitLab Pricing](/assets/images/git-servisler/gitlab-pricing.png)
+![GitLab Pricing](/blog/assets/images/git-servisler/gitlab-pricing.png)
 *[Kaynak](https://about.gitlab.com/gitlab-com/)*
 
 GitLab de yine Bitbucket gibi continuous integration hizmeti sunuyor, direk sistem üzerinden continuous integration süreçlerini yönetebiliyorsunuz. Yine aynı şekilde sistem üzerinde kullanabildiğiniz Kanban board’da mevcut, tüm issue’larınızı çeşitli etiketlere göre board’lara ayırıp on numero iş takibi yapabiliyorsunuz. Bitbucket’taki approval falan alayı GitLab’de de var, üstüne işte bir kamyon fazlası var.
@@ -81,5 +82,5 @@ Yukarıda anlattık, dedik bu bunu yapar, şu şunu yapar. Her bir sistemin kend
 
 Eğer hatamız varsa affola, küçük araştırmalarla böyle bir derleme sunmak istedik. Yanlış gördüğünüz, düzeltilmesi gerektiğini düşündüğünüz bir nokta varsa yorumlardan veya *burak.karakan@gmail.com* adresinden bana ulaşabilirsiniz. Yazıyı inceleyip feedback verdiği için [Furkan Hatipoğlu](https://github.com/furkanhatipoglu) kankimi de öpüyorum burdan. İyi akşamlar cümleten, her nerede yaşıyor ve yaşatılıyor iseniz…
 
-![Reha Muhtar](/assets/images/reha.jpeg){: .center-image }
+![Reha Muhtar](/blog/assets/images/git-servisler/reha.jpeg){: .center-image }
 

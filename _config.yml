@@ -26,7 +26,7 @@ navigation:                  # (optional) site navigation in the header
 icons:                       # (optional) icons in the header, see http://fontawesome.com/icons
   envelope: "mailto:burak.karakan@gmail.com"
   github: "https://github.com/karakanb"
-  rss: "/feed.xml"
+  rss: "feed.xml"
 
 comments:                    # embed disqus or isso comments
 #  disqus: ""

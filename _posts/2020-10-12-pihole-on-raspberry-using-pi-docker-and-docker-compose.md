@@ -130,7 +130,7 @@ Once you are done with this, do not unplug your SD card from your computer, beca
 
 In order to be able to reach our Raspberry Pi from our primary computer, we need to have SSH access to the Pi. By default, Raspberry Pi OS disables the SSH access for security reasons; therefore, we need to enable it. **Be careful: we are enabling SSH access because we are going to be using our Raspberry only in our internal network; if you are thinking of setting this up for your office space or a public network, you need to think about securing the SSH connection, especially getting rid of the password and using public-private key authentication.**
 
-Enabling the SSH connection is very simple: open your SD card contents on your computer, and create a new file called ssh there. The file doesn’t need to have anything written into it, and make sure there is no extension in the file name, like .txt or anything: just name it as ssh. The first time the OS boots, it’ll check the existence of this file, and enable SSH access on your Raspberry.
+Enabling the SSH connection is very simple: open your SD card contents on your computer, and create a new file called `ssh` there. The file doesn’t need to have anything written into it, and make sure there is no extension in the file name, like `.txt` or anything: just name it as `ssh`. The first time the OS boots, it’ll check the existence of this file, and enable SSH access on your Raspberry.
 
 Once this is done, your operating system is ready to be used.
 
@@ -144,7 +144,7 @@ At this point, you should be ready to connect to your Raspberry via SSH. Go to y
 ssh pi@raspberrypi.local
 ```
 
-In case you are prompted with a password for this connection, the default password is raspberry.
+In case you are prompted with a password for this connection, the default password is `raspberry`.
 
 If you are on a Windows machine, it might not be that simple to run SSH through the default Windows terminal, so I suggest using [PuTTY](https://www.putty.org/) for this use-case. The ways to connect your Raspberry Pi through SSH for different operating systems are also [covered in the official docs](https://www.raspberrypi.org/documentation/remote-access/ssh/), so make sure to go through them if you are unable to SSH into your Pi. This is also the point where you should figure out what terminal setup to use on your primary computer because the rest of the guide will assume that you are able to run commands like docker ps on your primary computer’s terminal. I am using macOS, but the process should be similar in any other common terminal.
 
@@ -170,7 +170,7 @@ If you see the `pi@raspberrypi:~ $` prompt, it means you are connected already, 
 
 By default, SSH access is enabled for the user pi with the password raspberry, which is not a very safe default to keep on, therefore let’s go ahead and change the password.
 
-To change the password, simply type passwd and hit the Enter key. This should show you a simple form to change your password. **Make sure to set a strong password.**
+To change the password, simply type `passwd` and hit the Enter key. This should show you a simple form to change your password. **Make sure to set a strong password.**
 
 ## Set a static IP on your Raspberry Pi
 
@@ -184,7 +184,7 @@ The output will look like this:
 
     default via 192.168.0.1 dev eth0 src 192.168.0.2 metric 202
 
-The first IP address, 192.168.0.1 in my case, is the IP address of our router. **Take note of this value, you’ll need it later.**
+The first IP address, `192.168.0.1` in my case, is the IP address of our router. **Take note of this value, you’ll need it later.**
 
 Next, run the following command to get your current private IP:
 
@@ -194,7 +194,7 @@ This will output something like this:
 
     inet 192.168.0.2  netmask 255.255.255.0  broadcast 192.168.0.255
 
-The IP address right next to the inet one, 192.168.0.2 in my case, is your private IP. **Take a note of this value too.**
+The IP address right next to the `inet` one, `192.168.0.2` in my case, is your private IP. **Take a note of this value too.**
 
 Now the last step, run the following command:
 
@@ -212,7 +212,7 @@ In my case, these lines look as follows:
     static ip_address=192.168.0.2
     static routers=192.168.0.1
 
-That’s it, you did it! At this point, you need to reboot your Raspberry Pi with a sudo reboot command for the changes to take effect; however, the following section will also require you to do that as well, so if you are gonna follow along with the guide, then you can keep going and restart later when Docker installation requires it.
+That’s it, you did it! At this point, you need to reboot your Raspberry Pi with a `sudo reboot` command for the changes to take effect; however, the following section will also require you to do that as well, so if you are gonna follow along with the guide, then you can keep going and restart later when Docker installation requires it.
 
 # Step 3. Install Docker
 
@@ -230,9 +230,9 @@ After your upgrade has finished, run the following command:
 
     curl -sSL https://get.docker.com | sh
 
-Well, in general, it is not a good practice to pipe curl output to sh directly, since this opens up basically a pool of endless remote code execution possibilities, and you should think about why this should be avoided. At the same time, I couldn’t find a safer way of installing Docker on Raspberry Pi OS which is also easy for beginners, so I decided to settle with this option. If you have a suggestion to improve this from the security perspective, please drop some comments and I’ll include them here.
+Well, in general, it is not a good practice to pipe `curl` output to `sh` directly, since this opens up basically a pool of endless remote code execution possibilities, and you should think about why this should be avoided. At the same time, I couldn’t find a safer way of installing Docker on Raspberry Pi OS which is also easy for beginners, so I decided to settle with this option. If you have a suggestion to improve this from the security perspective, please drop some comments and I’ll include them here.
 
-After Docker is installed, you’ll need to add the pi user to the required group to be able to run docker commands:
+After Docker is installed, you’ll need to add the `pi` user to the required group to be able to run `docker` commands:
 
     sudo usermod -aG docker pi
 
@@ -273,7 +273,7 @@ If you get this output, it means that your Docker setup is completed, yay!
 
 # Step 4. Run Pi-hole
 
-Now is the time for the real stuff: running the Pi-hole. Docker allows us to control a remote Docker machine by running our regular Docker commands with a special env variable called DOCKER_HOST. So, let’s start by defining this environment variable first.
+Now is the time for the real stuff: running the Pi-hole. Docker allows us to control a remote Docker machine by running our regular Docker commands with a special env variable called `DOCKER_HOST`. So, let’s start by defining this environment variable first.
 
     export DOCKER_HOST=ssh://pi@raspberrypi.local
 
@@ -285,7 +285,7 @@ This will list the running containers on your Raspberry Pi.
 
 ## Docker Compose
 
-We wanted to be able to define our containers declaratively and store them in version control, therefore we’ll use Docker Compose. Create a directory for your project, then create a file called docker-compose.yml. Put the following content into this file:
+We wanted to be able to define our containers declaratively and store them in version control, therefore we’ll use Docker Compose. Create a directory for your project, then create a file called `docker-compose.yml`. Put the following content into this file:
 
 ```yaml
 version: "3.8"
@@ -317,7 +317,7 @@ That’s all actually. Once you have this file, all you have to do is:
 
     DOCKER_HOST=ssh://pi@raspberrypi.local docker-compose up -d
 
-This will start Pi-hole on your Raspberry Pi. Give it a few minutes, and afterward, you can go to the local IP address of your Raspberry Pi, 192.168.0.2 in my case, on your browser and see the Pi-hole UI.
+This will start Pi-hole on your Raspberry Pi. Give it a few minutes, and afterward, you can go to the local IP address of your Raspberry Pi, `192.168.0.2` in my case, on your browser and see the Pi-hole UI.
 
 ![A sample screenshot from my own Pi-hole instance.](/blog/assets/images/pihole-docker/pihole-dashboard-ss.png){: .center-image }
 <div style="text-align: center;">
@@ -331,7 +331,7 @@ This step is optional if you can configure your router to use another device as 
 
 ## What is DHCP?
 
-Dynamic Host Configuration Protocol (DHCP) is the communication protocol that allows every device in a network to have a dynamic local IP address so that the device can be addressed within that local network, and the software that manages this assignment process is called DHCP server. Simply, it is the thing that gives your computer the local 192.168.x.y IP address.
+Dynamic Host Configuration Protocol (DHCP) is the communication protocol that allows every device in a network to have a dynamic local IP address so that the device can be addressed within that local network, and the software that manages this assignment process is called DHCP server. Simply, it is the thing that gives your computer the local `192.168.x.y` IP address.
 
 One thing you need to know before you move forward, especially if you don’t know what DHCP is or how it works: **there needs to be a single DHCP server in a simple home network, otherwise you’ll set for trouble.**
 
@@ -341,9 +341,9 @@ It is important to enable Pi-hole DHCP server and disable your router’s DHCP s
 
 ## Enabling Pi-hole DHCP server
 
-Pi-hole comes with a built-in DHCP server that can be used to replace your default DHCP server. To do that, go to Settings > DHCP and check the DHCP Server Enabled checkbox. Be careful about the range and IP address values there:
+Pi-hole comes with a built-in DHCP server that can be used to replace your default DHCP server. To do that, go to `Settings > DHCP` and check the `DHCP Server Enabled` checkbox. Be careful about the range and IP address values there:
 
-* **Range of IP addresses to hand out:** This one is the IP range your devices will get locally. Give this a range between 50–250 as the last part of your IP address to have a safe range. In my case, I limited it to 192.168.0.201 to 192.168.0.251, meaning that any new device that joins my network will get an IP within this range. In my case, I can only connect 50 clients safely, which is enough for my use-case, but you might want to change this for your own setup.
+* **Range of IP addresses to hand out:** This one is the IP range your devices will get locally. Give this a range between 50–250 as the last part of your IP address to have a safe range. In my case, I limited it to `192.168.0.201` to `192.168.0.251`, meaning that any new device that joins my network will get an IP within this range. In my case, I can only connect 50 clients safely, which is enough for my use-case, but you might want to change this for your own setup.
 
 * **Router (gateway) IP address:** This is the IP address of your router which we have found previously.
 
@@ -372,14 +372,14 @@ At this point, you should be ready to surf the internet with Pi-hole enabled. To
 
 Keep in mind: there are many layers of DNS caching involved in network communication, therefore give your devices some time, a day or two maybe in some cases, until you start complaining that you are still seeing ads. Alternatively, you can clear the DNS cache of your devices, although it might still be the case that there’ll be some cache that shows you some ads. Give Pi-hole some trust and let your devices adapt as the time goes by renewing their DNS caches. I have been using this setup with no issues for ~2 weeks now. I have done some further research and added some more lists to my blocklists to improve my privacy, and Pi-hole is blocking somewhere between 10–15% of my network traffic on an average day.
 
-One thing to note here is that: there might be some cases where Pi-hole blocks a domain you actually want to visit, therefore you want to put some exception rules in your blocking strategy. To do that, you can simply go to the Query Log tab on your Pi-hole dashboard and see the blocked domain:
+One thing to note here is that: there might be some cases where Pi-hole blocks a domain you actually want to visit, therefore you want to put some exception rules in your blocking strategy. To do that, you can simply go to the `Query Log` tab on your Pi-hole dashboard and see the blocked domain:
 
 ![I was blocking this due to an ad-list I have added.](/blog/assets/images/pihole-docker/blocked-example.png){: .center-image }
 <div style="text-align: center;">
     <small markdown="1">*I was blocking this due to an ad-list I have added.*</small>
 </div>
 
-Once you get the domain, you can go to the Whitelist tab on the sidebar and add this domain to your whitelist so that Pi-hole doesn’t block this address.
+Once you get the domain, you can go to the `Whitelist` tab on the sidebar and add this domain to your whitelist so that Pi-hole doesn’t block this address.
 
 I hope you enjoyed this piece and learned a thing or two. Feel free to suggest improvements or correct my mistakes in the comments below. I’d also like to thank my friend [Burak Sayin](https://www.linkedin.com/in/buraksayin/) for his patience and help debugging my Pi-hole setup at home as well as for his review on the article.
 

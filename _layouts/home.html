@@ -28,9 +28,12 @@ layout: default
   <header><h1>Posts</h1></header>
   {% for post in site.posts %}
   {%- assign date_format = site.date_format | default: "%B %d, %Y" -%}
-  <div>
+  <div style="margin-bottom: 1rem;">
     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
-    <h3 style="text-transform: lowercase;"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <div style="display: flex; flex-direction: column;">
+      <h3 style="text-transform: lowercase; margin-bottom: 0;"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p style="text-transform: lowercase; display: block; margin: 0; opacity: 0.4; font-size: medium;">{{ post.excerpt }}</p>
+    </div>
   </div>
   {% endfor %}
 </article>
